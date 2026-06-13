@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>富時代 · 寶連姐專屬邀請</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #2A0A0A;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .page { max-width: 520px; width: 100%; }
+
+  .outer {
+    background: linear-gradient(145deg, #8B1A1A, #5A0A0A);
+    border-radius: 20px;
+    padding: 3px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(200,150,12,0.4);
+  }
+
+  .inner { background: #FFFDF8; border-radius: 18px; overflow: hidden; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(160deg, #7A0000, #B22222);
+    padding: 44px 36px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(200,150,12,0.07);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -30px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(200,150,12,0.05);
+  }
+
+  .invite-label {
+    display: inline-block;
+    background: rgba(200,150,12,0.2);
+    border: 1px solid rgba(200,150,12,0.5);
+    color: #E8B020;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    padding: 5px 18px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .invite-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .invite-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gold-line {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, #C8960C);
+  }
+
+  .gold-line.r { background: linear-gradient(90deg, #C8960C, transparent); }
+
+  .gold-diamond {
+    width: 8px; height: 8px;
+    background: #C8960C;
+    transform: rotate(45deg);
+  }
+
+  /* MAIN INCOME */
+  .main-income {
+    background: #FEF8E8;
+    border-bottom: 2px solid #E8D090;
+    padding: 36px 36px 28px;
+    text-align: center;
+  }
+
+  .income-eyebrow {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .income-num {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #8B1A1A;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .income-sub {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 18px;
+  }
+
+  .income-badge {
+    display: inline-block;
+    background: #8B1A1A;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 20px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  /* BREAKDOWN */
+  .breakdown {
+    padding: 32px 36px;
+    border-bottom: 1px solid #EEE5D8;
+  }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #C8960C;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .breakdown-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .b-item {
+    background: #FDF5F5;
+    border: 1px solid rgba(139,26,26,0.12);
+    border-left: 4px solid #8B1A1A;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .b-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #8B1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .b-body { flex: 1; }
+
+  .b-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+  }
+
+  .b-desc {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .b-amt {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #8B1A1A;
+    flex-shrink: 0;
+  }
+
+  /* TOTAL */
+  .total-bar {
+    background: linear-gradient(135deg, #7A0000, #B22222);
+    padding: 22px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #C8960C;
+  }
+
+  .total-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .total-num {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #E8B020;
+  }
+
+  /* MILESTONE */
+  .milestone {
+    background: #FEF8E8;
+    border-bottom: 1px solid #E8D090;
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .m-icon { font-size: 24px; flex-shrink: 0; }
+
+  .m-text {
+    font-size: 13px;
+    color: #4A4A4A;
+    line-height: 1.7;
+  }
+
+  .m-text strong { color: #8B1A1A; font-size: 14px; }
+
+  /* CASE TYPES */
+  .case-types {
+    padding: 28px 36px;
+    border-bottom: 1px solid #EEE5D8;
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .case-card {
+    background: #FDF5F5;
+    border: 1px solid rgba(139,26,26,0.1);
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+
+  .case-type {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  .case-pct {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #8B1A1A;
+    margin-bottom: 4px;
+  }
+
+  .case-amt {
+    font-size: 11px;
+    color: #B22222;
+    font-weight: 600;
+  }
+
+  .case-sub {
+    font-size: 10px;
+    color: #AAA;
+    margin-top: 3px;
+  }
+
+  /* PERKS */
+  .perks {
+    padding: 28px 36px;
+    border-bottom: 1px solid #EEE5D8;
+  }
+
+  .perks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .perk {
+    background: white;
+    border: 1px solid #EEE5D8;
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .perk-icon { font-size: 18px; flex-shrink: 0; }
+
+  .perk-text strong {
+    display: block;
+    font-size: 13px;
+    color: #1A1A1A;
+    margin-bottom: 2px;
+  }
+
+  .perk-text span {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(160deg, #7A0000, #B22222);
+    padding: 36px 36px 32px;
+    text-align: center;
+  }
+
+  .cta-quote {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    color: white;
+    line-height: 1.9;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .cta-divider {
+    width: 40px; height: 2px;
+    background: #C8960C;
+    margin: 0 auto 22px;
+  }
+
+  .cta-contact {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 2.2;
+  }
+
+  .cta-contact span { color: #E8B020; font-weight: 600; }
+
+  @media (max-width: 480px) {
+    .income-num { font-size: 56px; }
+    .header, .breakdown, .perks, .cta, .main-income, .case-types { padding-left: 24px; padding-right: 24px; }
+    .total-bar { padding-left: 24px; padding-right: 24px; }
+    .milestone { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="outer">
+<div class="inner">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="invite-label">富時代 · 專屬邀請</div>
+    <div style="position:relative;display:inline-block;margin-bottom:20px;">
+      <div style="width:110px;height:110px;border-radius:50%;border:3px solid #C8960C;box-shadow:0 0 0 5px rgba(200,150,12,0.25),0 0 0 8px rgba(200,150,12,0.1),0 8px 24px rgba(0,0,0,0.5);overflow:hidden;margin:0 auto;">
+        <img src="data:image/jpeg;base64,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"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+    </div>
+    <div style="font-family:'Noto Serif TC',serif;font-size:42px;font-weight:700;color:white;line-height:1;margin-bottom:6px;text-shadow:0 2px 12px rgba(0,0,0,0.3);">寶連姐</div>
+    <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin:12px auto 0;">
+      <div style="width:40px;height:1px;background:rgba(200,150,12,0.6);"></div>
+      <div style="width:6px;height:6px;background:#C8960C;transform:rotate(45deg);"></div>
+      <div style="width:40px;height:1px;background:rgba(200,150,12,0.6);"></div>
+    </div>
+    <div class="invite-sub">這個舞台，是為你量身打造的<br>房產理財經理 · 總銷 0.9% 直接到位</div>
+    <div class="gold-divider">
+      <div class="gold-line"></div>
+      <div class="gold-diamond"></div>
+      <div class="gold-line r"></div>
+    </div>
+  </div>
+
+  <!-- MAIN INCOME -->
+  <div class="main-income">
+    <div class="income-eyebrow">第一年保守年收入</div>
+    <div class="income-num">387萬</div>
+    <div class="income-sub">以每戶總價 1,500萬計算</div>
+    <div class="income-badge">房產理財副理 · 總銷 0.9% 直接到位</div>
+  </div>
+
+  <!-- BREAKDOWN -->
+  <div class="breakdown">
+    <div class="section-title">收入從哪裡來</div>
+    <div class="breakdown-items">
+
+      <div class="b-item">
+        <div class="b-icon">🏠</div>
+        <div class="b-body">
+          <div class="b-title">自己做業績</div>
+          <div class="b-desc">副理 0.9%，每月穩定成交1戶<br>1,500萬 × 0.9% × 12戶 = 13.5萬/戶</div>
+        </div>
+        <div class="b-amt">162萬</div>
+      </div>
+
+      <div class="b-item">
+        <div class="b-icon">👥</div>
+        <div class="b-body">
+          <div class="b-title">帶進來的夥伴・差額獎金</div>
+          <div class="b-desc">你帶進來的人，每成交一戶你就多領一筆<br>差額 0.3%（0.9%-0.6%）× 1,500萬 × 50戶</div>
+        </div>
+        <div class="b-amt">225萬</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="total-bar">
+    <div class="total-label">第一年合計收入</div>
+    <div class="total-num">387萬</div>
+  </div>
+
+  <!-- MILESTONE -->
+  <div class="milestone">
+    <div class="m-icon">🎯</div>
+    <div class="m-text">
+      <strong>升任房產理財經理・總銷1.0%</strong><br>
+      自己年收 180萬，差額擴大至 300萬<br>
+      <span style="color:#C8960C;font-weight:700;">合計直接跳升至 480萬 ↑</span>
+    </div>
+  </div>
+
+
+  <!-- ONE LINER -->
+  <div style="background:#8B1A1A;padding:18px 36px;border-bottom:1px solid rgba(200,150,12,0.3);text-align:center;">
+    <div style="font-size:14px;color:white;line-height:1.8;">
+      進場就是<strong style="color:#E8B020;font-size:16px;">副理</strong>，不需要從頭累積<br>
+      <span style="font-size:12px;color:rgba(255,255,255,0.6);">帶進來的夥伴每成交一戶，你就多領一筆差額獎金</span>
+    </div>
+  </div>
+
+  <!-- PERKS -->
+  <div class="perks">
+    <div class="section-title">進來還有什麼</div>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-icon">💼</div>
+        <div class="perk-text">
+          <strong>15億案源在手</strong>
+          <span>代銷案源充足，進來第一天就有案子可以打</span>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">🔑</div>
+        <div class="perk-text">
+          <strong>完全自主</strong>
+          <span>團隊你管，公司不干涉</span>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">🤝</div>
+        <div class="perk-text">
+          <strong>行政全配</strong>
+          <span>你只管做業績，雜事我們來</span>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">🏆</div>
+        <div class="perk-text">
+          <strong>年終第二年起</strong>
+          <span>300萬保底，達標另計</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-quote">
+      「這不是一份工作邀請<br>
+      這是一個值得你認真考慮的舞台」
+    </div>
+    <div class="cta-divider"></div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.9;">
+      以上是我們誠意的展現<br>
+      <span style="color:#E8B020;">細節我們見面聊，沒有壓力</span>
+    </div>
+    <div class="cta-contact">
+      聯絡人 <span>Nick 施向宇</span><br>
+      <span>0933-671-354</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>
