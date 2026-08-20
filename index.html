@@ -190,6 +190,51 @@
     gap: 16px;
   }
 
+  /* 可展開／收合：讓長內容預設收起，點了才展開 */
+  summary.project-header {
+    list-style: none;
+    cursor: pointer;
+  }
+  summary.project-header::-webkit-details-marker { display: none; }
+
+  .toggle-plus {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    transition: transform .2s ease;
+  }
+  details[open] > summary .toggle-plus { transform: rotate(45deg); }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    list-style: none;
+    padding: 16px 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .toggle-row::-webkit-details-marker { display: none; }
+  .toggle-row .toggle-sub {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 4px;
+  }
+  .toggle-body { padding-top: 18px; }
+
   .project-num {
     width: 32px; height: 32px;
     border-radius: 50%;
@@ -489,6 +534,12 @@
       <div class="section-title">從混亂到系統：富時代的數位轉型</div>
       <div class="section-divider"></div>
 
+      <details>
+      <summary class="toggle-row">
+        <div>查看完整轉型案例<div class="toggle-sub">客戶資料、話術、培訓、報名、出勤 —— 五個環節一次系統化</div></div>
+        <div class="toggle-plus">+</div>
+      </summary>
+      <div class="toggle-body">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
         <div style="background:#FEF0F0;border:1px solid #E8AAAA;border-radius:10px;padding:24px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;color:#A82020;text-transform:uppercase;margin-bottom:12px;">導入前</div>
@@ -518,6 +569,8 @@
         <div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px;">寶和建設代銷案場：把「老手的判斷」變成一線的系統</div>
         <div style="font-size:13px;color:var(--ink-mid);line-height:1.9;">以獨立顧問身分，為 寶和建設 × 馥鈺行銷 的新建案代銷案場導入一站式「代銷案場葵花寶典」系統：對外只露出客戶意向問卷，後台依「跑單／主管」分權，內建話術速查與競品雷達。讓案場不再只靠資深主管的經驗判斷，新進跑單也能一線即戰。系統已迭代至 v37，競品情報每週一自動更新。</div>
       </div>
+      </div>
+      </details>
     </section>
 
     <!-- 系統作品 -->
@@ -528,14 +581,18 @@
 
       <!-- 7. 富甲寶植 代銷案場客戶意向系統 -->
       <div class="project-card">
-        <div class="project-header">
+        <details>
+        <summary class="project-header">
           <div class="project-num" style="background:#0E7C6B">1</div>
           <div class="project-title-area">
             <div class="project-title">富甲寶植 · 代銷案場客戶意向系統（葵花寶典）</div>
             <div class="project-sub">對外問卷 × 角色分權後台 · 寶和建設／馥鈺行銷 · v37</div>
           </div>
-          <div class="project-badge" style="background:#B8881A;color:#fff;border:1px solid #B8881A">★ 招牌作品</div>
-        </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <div class="project-badge" style="background:#B8881A;color:#fff;border:1px solid #B8881A">★ 招牌作品</div>
+            <div class="toggle-plus">+</div>
+          </div>
+        </summary>
         <div class="project-body">
           <div class="project-desc">
             以顧問身分為建設公司代銷案場打造的一站式數位系統。對外只露出「客戶意向問卷」，後台依「跑單／主管」分權登入，內建話術速查與競品雷達。把案場最依賴資深主管的判斷，變成一線跑單也能即戰的系統。行動優先、相容 FB 內嵌瀏覽器，已持續迭代至 v37。
@@ -562,18 +619,23 @@
             <span class="feature-tag">行動優先</span>
           </div>
         </div>
+        </details>
       </div>
 
       <!-- 8. 競品雷達系統 -->
       <div class="project-card">
-        <div class="project-header">
+        <details>
+        <summary class="project-header">
           <div class="project-num" style="background:#3B4A8A">2</div>
           <div class="project-title-area">
             <div class="project-title">競品雷達系統</div>
             <div class="project-sub">Meta 廣告檔案庫 × 實價行情 · 主管決策視角</div>
           </div>
-          <div class="project-badge" style="background:#ECEEF7;color:#3B4A8A;border:1px solid #B9C2E4">AI情報</div>
-        </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <div class="project-badge" style="background:#ECEEF7;color:#3B4A8A;border:1px solid #B9C2E4">AI情報</div>
+            <div class="toggle-plus">+</div>
+          </div>
+        </summary>
         <div class="project-body">
           <div class="project-desc">
             自動抓取 Meta 廣告檔案庫在投競品，用「廣告存活天數」判讀哪一張 HOOK 真正有效，給出威脅評分與主管決策建議；再串接樂居實價行情（單一對標區 352 筆）建立定價錨點。每週一自動更新，跑單只要回報客戶在案場提到的案名，當週就能加入對標切換頁。
@@ -600,18 +662,23 @@
             <span class="feature-tag">每週自動更新</span>
           </div>
         </div>
+        </details>
       </div>
 
       <!-- 1. CRM -->
       <div class="project-card">
-        <div class="project-header">
+        <details>
+        <summary class="project-header">
           <div class="project-num" style="background:var(--blue)">3</div>
           <div class="project-title-area">
             <div class="project-title">CRM 客戶關係管理系統</div>
             <div class="project-sub">雲端同步 · Google Sheets後台 · GitHub Pages部署</div>
           </div>
-          <div class="project-badge" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)">核心系統</div>
-        </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <div class="project-badge" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)">核心系統</div>
+            <div class="toggle-plus">+</div>
+          </div>
+        </summary>
         <div class="project-body">
           <div class="project-desc">
             從零開始建立，迭代至v19以上。涵蓋客戶分級管理、成交覆盤系統、競賽計分排行榜、週積分結算。全團隊雲端同步，無需安裝任何軟體，手機即可操作。
@@ -639,18 +706,23 @@
             <span class="feature-tag">Google Apps Script</span>
           </div>
         </div>
+        </details>
       </div>
 
       <!-- 2. SOS話術庫 -->
       <div class="project-card">
-        <div class="project-header">
+        <details>
+        <summary class="project-header">
           <div class="project-num" style="background:var(--green)">4</div>
           <div class="project-title-area">
             <div class="project-title">SOS 異議處理話術庫</div>
             <div class="project-sub">AI生成 · 300+情境 · 實際業務使用中</div>
           </div>
-          <div class="project-badge" style="background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)">AI驅動</div>
-        </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <div class="project-badge" style="background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)">AI驅動</div>
+            <div class="toggle-plus">+</div>
+          </div>
+        </summary>
         <div class="project-body">
           <div class="project-desc">
             將資深業務的核心話術方法論數位化，建立涵蓋300+組異議情境的完整話術庫。業務遇到客戶反對意見，即時查詢對應話術，大幅縮短新人養成時間。
@@ -676,18 +748,23 @@
             <span class="feature-tag">AI輔助生成</span>
           </div>
         </div>
+        </details>
       </div>
 
       <!-- 3. AI培訓系統 -->
       <div class="project-card">
-        <div class="project-header">
+        <details>
+        <summary class="project-header">
           <div class="project-num" style="background:var(--gold)">5</div>
           <div class="project-title-area">
             <div class="project-title">八部曲銷售培訓系統 + AI陪練</div>
             <div class="project-sub">完整課程體系 · AI角色扮演 · 實際培訓22人</div>
           </div>
-          <div class="project-badge" style="background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border)">培訓系統</div>
-        </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <div class="project-badge" style="background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border)">培訓系統</div>
+            <div class="toggle-plus">+</div>
+          </div>
+        </summary>
         <div class="project-body">
           <div class="project-desc">
             設計完整的八步驟銷售培訓課程，並建立AI陪練系統，讓業務可以與AI模擬真實客戶情境進行練習。已完成10次課程，培訓22位業務人員。
@@ -713,6 +790,7 @@
             <span class="feature-tag">成效評估</span>
           </div>
         </div>
+        </details>
       </div>
 
     </section>
